@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: "Inter", sans-serif;
+  }
+  
+  body {
+    @apply bg-background text-white overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 25% 15%, rgba(14, 165, 233, 0.1) 0%, transparent 25%),
+      radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 25%);
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-white;
+  }
+
+  /* Width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
+
+@layer components {
+  .glassmorphism {
+    @apply bg-glass-highlight bg-opacity-10 backdrop-blur-sm border border-glass-border rounded-xl;
+  }
+  
+  .heading-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+  }
+  
+  .neon-border {
+    @apply border-[1px] border-transparent;
+    animation: borderFlow 8s linear infinite;
+    border-image: linear-gradient(90deg, #0ea5e9, #8b5cf6, #ec4899, #0ea5e9) 1;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-10 heading-gradient;
+  }
+  
+  .fade-in {
+    @apply opacity-0 translate-y-10;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .fade-in.appear {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* Animated background shapes */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(14, 165, 233, 0.3), rgba(139, 92, 246, 0.3));
+  animation: float 10s infinite ease-in-out;
+  z-index: -1;
+  filter: blur(5px);
+}
+
+.shape-1 {
+  top: 15%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  bottom: 10%;
+  right: 15%;
+  width: 200px;
+  height: 200px;
+  animation-delay: 2s;
+  background: linear-gradient(45deg, rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.3));
+}
+
+.shape-3 {
+  top: 50%;
+  right: 5%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 1s;
+  background: linear-gradient(45deg, rgba(236, 72, 153, 0.3), rgba(14, 165, 233, 0.3));
+}
+
+.shape-4 {
+  bottom: 30%;
+  left: 5%;
+  width: 180px;
+  height: 180px;
+  animation-delay: 3s;
+  background: linear-gradient(45deg, rgba(14, 165, 233, 0.2), rgba(139, 92, 246, 0.2));
+}
+
+/* Grid line background */
+.grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  opacity: 0.05;
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+}
