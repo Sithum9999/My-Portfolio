@@ -89,7 +89,7 @@ const Hero = () => {
               style={{ transformStyle: 'preserve-3d' }}
             >
               <img
-                src="/sithum.png"
+                src="/sithum.jpeg"
                 alt="Sithum Sankalpa"
                 className="w-full h-full object-cover"
               />
